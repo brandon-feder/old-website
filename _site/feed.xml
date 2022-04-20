@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-20T15:36:01-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Brandon’s Website</title><subtitle>This is Brandon Feder&apos;s website. Here he posts information about the projects he is working on as well as resources people he is working with may find useful.</subtitle><entry><title type="html">2nd Brookhaven Internship</title><link href="http://localhost:4000/current/2022/04/19/bnl-internship-2.html" rel="alternate" type="text/html" title="2nd Brookhaven Internship" /><published>2022-04-19T00:00:00-04:00</published><updated>2022-04-19T00:00:00-04:00</updated><id>http://localhost:4000/current/2022/04/19/bnl-internship-2</id><content type="html" xml:base="http://localhost:4000/current/2022/04/19/bnl-internship-2.html"><![CDATA[<p>TODO: Finish</p>]]></content><author><name></name></author><category term="current" /><summary type="html"><![CDATA[TODO: Finish]]></summary></entry><entry><title type="html">Grandpa’s 2022 Birthday</title><link href="http://localhost:4000/2022/04/19/grandpa-2022-birthday.html" rel="alternate" type="text/html" title="Grandpa’s 2022 Birthday" /><published>2022-04-19T00:00:00-04:00</published><updated>2022-04-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/04/19/grandpa-2022-birthday</id><content type="html" xml:base="http://localhost:4000/2022/04/19/grandpa-2022-birthday.html"><![CDATA[<p>For my Grandfather’s 2022 birthday, I wrote a program that renders the <a href="https://en.wikipedia.org/wiki/Buddhabrot">Budhabrot fractal</a> at a very high definition using my computer’s NVIDIA 2060 Super. I then bought him a wall-print from <a href="www.shutterfly.com">Shutterfly</a>.</p>
+
+<p>For the program itself, I cloned one of my old Mandelbrot set rendering codes and adjusted it slightly to render the Budhabrot instead. I then implemented a trick that uses Monte-Carlo importance estimation to decrease the computation time. There are a few other things going on that you can read about here:</p>
+
+<ul>
+  <li><a href="https://benedikt-bitterli.me/buddhabrot/" target="_blank">https://benedikt-bitterli.me/buddhabrot/</a></li>
+</ul>
+
+<p>Finally, I referenced this persons Lisp program:</p>
+
+<ul>
+  <li><a href="https://erleuchtet.org/2010/07/ridiculously-large-buddhabrot.html" target="_blank">https://erleuchtet.org/2010/07/ridiculously-large-buddhabrot.html</a></li>
+</ul>
+
+<p>The original code, which you can find on my GitHub, was already GPU accelerated. I ran the render for around 22 hours. The image after some de-noise and lossless JPG compression takes just over 200Mb of storage. Here is a VERY-compressed version of the final render:</p>
+
+<p><img src="/assets/buddhabrot_small_compressed.jpg" alt="Budhabrot Compressed" target="_blank" /></p>
+
+<p>You can get the full render from my Google Drive <a href="https://drive.google.com/drive/folders/1eL0HmrvK0zet2toaUuTkjs0Bk9ki8IOV?usp=sharing" target="_blank">here</a>.</p>
+
+<div class=" alert alert-danger">Do not open the normal and definitely not the huge photo unless you know what you are doing. It will likely crash your computer.</div>]]></content><author><name></name></author><summary type="html"><![CDATA[For my Grandfather’s 2022 birthday, I wrote a program that renders the Budhabrot fractal at a very high definition using my computer’s NVIDIA 2060 Super. I then bought him a wall-print from Shutterfly.]]></summary></entry><entry><title type="html">Research Project</title><link href="http://localhost:4000/current/2022/04/19/research-proj.html" rel="alternate" type="text/html" title="Research Project" /><published>2022-04-19T00:00:00-04:00</published><updated>2022-04-19T00:00:00-04:00</updated><id>http://localhost:4000/current/2022/04/19/research-proj</id><content type="html" xml:base="http://localhost:4000/current/2022/04/19/research-proj.html"><![CDATA[<p>I am participating in my school’s (Princeton International School of Math and Science [PRIMS]) research program. In this program we are given two years to do research in some STEM field that we are interested in.</p>
+
+<p>I chose to research a question in an area of mathematical-logic called model theory which studies relationships between formal systems using tools from abstract algebra and category theory. More on this below.</p>
+
+<p>This is more of an informal overview; I skip over a lot and make some gross generalizations and simplifications in order to get the general idea across. I also rely on your mathematical intuition to fill in the gaps. Finally, I attached some links at the bottom of each subsection if you want to read more.</p>
+
+<h2 id="formal-systems">Formal Systems</h2>
+<p>“A formal system is an abstract structure used for inferring theorems from axioms according to a set of rules.” (<a href="https://en.wikipedia.org/wiki/Formal_system">Wikipedia: Formal Systems</a>) Often, these systems are formalized in terms of a formal language, a set of axioms, and a set of inference rules.</p>
+
+<p>The formal language gives the set of rules by which sentences, or formulas, in the language are syntactically correct e.g. make syntactic “sense”. Note the distinction from semantic correctness (logical “sense”). In English, the sentences “People who read books are smart. Joe reads books. Joe is not smart.” are syntactically correct: Each sentence starts with a capital letter, ends with a period, etc. However, it does not make logical sense. It is therefore not semantically correct. If a sentence/formula is syntactically correct, it is said to be well-formed. Conversely, a well-formed formulas is syntactically correct.</p>
+
+<p>The inference rules tell how one well-formed formula (conclusion) can be logically inferred, or proved, from a set of given axioms (premises).</p>
+
+<p>A quick and dirty example of such a system is given by sentential logic or propositional calculous. This is the “generic”-system you mat have learned about in an elementary computer science class. The set of “operators” are called <strong>truth-functional connectives</strong> and include \(\land\) (and), \(\lor\) (or), \(\neg\) (not), \(\rightarrow\) (if/if … then …), and \(\leftrightarrow\) (iff / if .. only if …). These connectives are juxtaposed by “variables” called <strong>atomic symbols</strong> such as \(a\), \(b\), or \(c\). The atomic symbols may have the value \(T\) (true) or \(F\) (false).</p>
+
+\[(a \lor b) \lor (\neg a \land \neg b) \tag{1}\]
+
+<p>is an example of a well-formed formula according the the language of sentential logic (LSL). However,</p>
+
+\[ab\land c \neg\]
+
+<p>is not. An axiom of sentential logic is</p>
+
+\[a \lor \neg a\]
+
+<p>which is assumed always true. The sole inference rule of sentential logic is</p>
+
+\[\frac{F, F \rightarrow G}{G}\]
+
+<p>where \(F\) and \(G\) are well-formed by LSL. This inference rule may read “If \(F\) [is true], and \(F\) implies \(G\), then \(G\) [is true].” Doesn’t this make sense?</p>
+
+<p>A well-formed formula is a <strong>tautology</strong> if every possible substitution of it’s atomic symbols with \(T\) or \(F\) leads to a \(T\) “outcome.” These substitutions are called <strong>valuations</strong> or <strong>interpretations</strong>. Formula (1) is an example of a tautology since no matter what you substitute for \(a\) and \(b\), the result will be \(T\). Try it!</p>
+
+<p>A well-formed formula is called a <strong>theorem</strong> if it is derivable, or provable, by applying the systems inference rules to it’s axioms.</p>
+
+<p>A system is <strong>complete</strong> if every tautology is a theorem.</p>
+
+<p>Sentential logic is complete.</p>
+
+<p>Resources:</p>
+<ul>
+  <li>Formal systems: <a href="Wikipedia: Formal Systems">https://en.wikipedia.org/wiki/Formal_system</a></li>
+  <li>Completeness <a href="Completeness (logic)">https://en.wikipedia.org/wiki/Completeness_(logic)</a></li>
+  <li>Formalization of Sentential Logic: <a href="Wolfram MathWorld: Propositional Calculous">https://mathworld.wolfram.com/PropositionalCalculus.html</a></li>
+  <li>More about Sentential Logic: Wikipedia: <a href="Wikipedia: Propositional Calculous">https://en.wikipedia.org/wiki/Propositional_calculus</a></li>
+</ul>
+
+<h2 id="first-order-logic">First-Order Logic</h2>
+<p><strong>First-order logic</strong>, or predicate calculous, is a class of systems extended from sentential logic. In addition to the functionality given by sentential logic, first-order logic allows for the use of qualifiers such as \(\forall\) (forall) and \(\exists\) (exists), non-logical symbols, as well as predicates which describe relations between non-logical atomic symbols. Non-logical symbols refer to those “variables” which need not to have the value \(T\) or \(F\).</p>
+
+<p>Zermelo-Fraenkel set theory (ZF) is the standard formalization of set theories’ formal system. This will be very familiar. In this system \(\in\) is a predicate describing a relation between some object (which may be a set itself) and a set. Consider the following axiom in ZF set theory: \begin{align}
+    \forall x \forall y [\forall z(z \in x \leftrightarrow z \in y) \rightarrow x=y]
+\end{align} Can you guess what this axiom defines?</p>
+
+<p>Resources:</p>
+<ul>
+  <li><a href="Wikipedia: First-order Logic">https://en.wikipedia.org/wiki/First-order_logic</a></li>
+</ul>
+
+<h2 id="turing-machines">Turing Machines</h2>
+
+<p>A <strong>decision problem</strong> is one which has a yes/no or true/false answer. A problem is <strong>decidable</strong> if it has such an answer. Otherwise, the problem is said to be <strong>undecidable</strong>.</p>
+
+<p>“A <strong>Turing machine</strong> is a mathematical model of computation that defines an abstract machine that manipulates symbols on a strip of tape according to a table of rules” (<a href="https://en.wikipedia.org/wiki/Turing_machine">Wikipedia: Turing Machine</a>). You can think of it as an algorithm. The <strong>halting problem</strong> is a decision problem that asks to determine whether a Turing machine will halt (e.g. terminate) for a given input.</p>
+
+<p>A set is <strong>recursively enumerable</strong> if it’s elements can be listed by a Turing machine.</p>
+
+<p>Resources:</p>
+<ul>
+  <li>Basic Turing machine stuff: <a href="Wikipedia: Turing Machine">https://en.wikipedia.org/wiki/Turing_machine</a></li>
+  <li>More in-depth Turing machine info: <a href="Stanford Encyclopedia of Philosophy: Turing Machines">https://plato.stanford.edu/entries/turing-machine/</a>. The <em>Stanford Encyclopedia of Philosophy</em> has a lot of great logic-ish stuff.</li>
+</ul>
+
+<h2 id="gödels-first-incompleteness-theorems">Gödels First Incompleteness Theorems</h2>
+
+<p>A formal system is <strong>recursively enumerable</strong> if it’s theorems form a recursively enumerable set.</p>
+
+<p><strong>Gödel’s Incompleteness Theorem</strong> states that no recursively enumerable formal system strong enough to describe all truths about integers is complete. In other words, in every recursively enumerable … there are tautologies that are not theorems. Furthermore, there are a countably infinite number of these formulas.</p>
+
+<p>ZF, and stronger systems such as ZFC (ZF with axiom of choice), satisfy all the “requirements” of Gödels Incompleteness Theorem and are therefore incomplete. The continuum hypothesis is an example of one of those well-formed formulas. The same is true for the halting problem in the context of Turing machines. Extensions of ZF can assert the truthfulness of the continuum hypothesis as an axiom without leading to contradictions. Can you explain why? However, these systems will still have other unprovable tautologies.</p>
+
+<p>Resources:</p>
+<ul>
+  <li><a href="Stanford Encyclopedia of Philosophy: G\&quot;{o}del's Incompleteness Theorem">https://plato.stanford.edu/entries/goedel-incompleteness/</a></li>
+</ul>
+
+<p>TODO: Need to finish</p>
+
+<!-- ## Computable Model Theory
+**Model theory** is the field of mathematics that aims to use tools from abstract algebra to study relationships between formal systems.
+
+Resources:
+- [https://en.wikipedia.org/wiki/Model_theory](Wikipedia: Model Theory) -->]]></content><author><name></name></author><category term="current" /><summary type="html"><![CDATA[I am participating in my school’s (Princeton International School of Math and Science [PRIMS]) research program. In this program we are given two years to do research in some STEM field that we are interested in.]]></summary></entry><entry><title type="html">My Website</title><link href="http://localhost:4000/2022/04/19/website.html" rel="alternate" type="text/html" title="My Website" /><published>2022-04-19T00:00:00-04:00</published><updated>2022-04-19T00:00:00-04:00</updated><id>http://localhost:4000/2022/04/19/website</id><content type="html" xml:base="http://localhost:4000/2022/04/19/website.html"><![CDATA[<p>My website, the place where you are reading this, was a small project I worked on for 2-3 days. I wanted one place to post records of the projects I have worked on, as well as resources for people working on those projects with me.</p>
+
+<p>I wrote this website using <a href="https://jekyllrb.com/">Jekyll</a>, an open source, simple, static website generator. I setup the websites layout, header, etc. using HTML and SASS, but Jekyll allows me to type the main content on each page in Markdown.</p>
+
+<p>In addition, Jekyll provides support for <a href="https://shopify.github.io/liquid/">Liquid</a> templating which allows automatic-writing of HTML code based off of variables defined in each pages YAML header. This can be seen in action on the <a href="/projects.html">projects page</a>.</p>
+
+<p>I also use <a href="https://getbootstrap.com/">Bootstrap 5</a> and the new Bootstrap icons.</p>
+
+<p>I included <a href="https://www.mathjax.org/">MathJax</a> so I could write LaTeX math equations like this:</p>
+
+\[\int_m^{2m} \frac{1}{x} dx = \ln(2)\]
+
+<p>Unfortunately, MathJax does not allow the use of the <code class="language-plaintext highlighter-rouge">usepackage</code> command meaning that I can only use the base LaTeX functionality.</p>
+
+<p>Finally, I got kramdown, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/">rogue</a> to perform syntax highlighting.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter Radios: "</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"The Area Is:"</span><span class="p">,</span> <span class="n">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>That’s it! If you want to set something like this up, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io">this projects github repo</a>.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[My website, the place where you are reading this, was a small project I worked on for 2-3 days. I wanted one place to post records of the projects I have worked on, as well as resources for people working on those projects with me.]]></summary></entry></feed>

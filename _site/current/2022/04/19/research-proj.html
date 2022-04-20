@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- My styles -->
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- Page Title -->
+    <title>Research Project</title>
+  </head>
+  <body onload="colorBg()">
+    <div class="content">
+      <div class="content-paper"> 
+        <header>
+          <a href="/"><h1>Brandon's Website</h1></a>
+          
+          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+            <i class="bi bi-github"></i>
+          </a>
+
+          <a class="btn btn-primary header-btn" href="/contact.html"> 
+            <i class="bi bi-telephone"></i>
+          </a>
+        </header>
+        
+        <hr/>
+
+        <div class="quick-links">
+          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+        </div>
+
+        <hr/>
+
+        <div class="main-content">
+          <div class="small-screen-warning alert alert-danger">
+            My website does not work well on mobile devices. I would suggest using your computer.
+          </div>
+
+          
+            <h1 style="margin-bottom: 0;">Research Project</h1>
+            <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
+          
+
+          <p>I am participating in my school’s (Princeton International School of Math and Science [PRIMS]) research program. In this program we are given two years to do research in some STEM field that we are interested in.</p>
+
+<p>I chose to research a question in an area of mathematical-logic called model theory which studies relationships between formal systems using tools from abstract algebra and category theory. More on this below.</p>
+
+<p>This is more of an informal overview; I skip over a lot and make some gross generalizations and simplifications in order to get the general idea across. I also rely on your mathematical intuition to fill in the gaps. Finally, I attached some links at the bottom of each subsection if you want to read more.</p>
+
+<h2 id="formal-systems">Formal Systems</h2>
+<p>“A formal system is an abstract structure used for inferring theorems from axioms according to a set of rules.” (<a href="https://en.wikipedia.org/wiki/Formal_system">Wikipedia: Formal Systems</a>) Often, these systems are formalized in terms of a formal language, a set of axioms, and a set of inference rules.</p>
+
+<p>The formal language gives the set of rules by which sentences, or formulas, in the language are syntactically correct e.g. make syntactic “sense”. Note the distinction from semantic correctness (logical “sense”). In English, the sentences “People who read books are smart. Joe reads books. Joe is not smart.” are syntactically correct: Each sentence starts with a capital letter, ends with a period, etc. However, it does not make logical sense. It is therefore not semantically correct. If a sentence/formula is syntactically correct, it is said to be well-formed. Conversely, a well-formed formulas is syntactically correct.</p>
+
+<p>The inference rules tell how one well-formed formula (conclusion) can be logically inferred, or proved, from a set of given axioms (premises).</p>
+
+<p>A quick and dirty example of such a system is given by sentential logic or propositional calculous. This is the “generic”-system you mat have learned about in an elementary computer science class. The set of “operators” are called <strong>truth-functional connectives</strong> and include \(\land\) (and), \(\lor\) (or), \(\neg\) (not), \(\rightarrow\) (if/if … then …), and \(\leftrightarrow\) (iff / if .. only if …). These connectives are juxtaposed by “variables” called <strong>atomic symbols</strong> such as \(a\), \(b\), or \(c\). The atomic symbols may have the value \(T\) (true) or \(F\) (false).</p>
+
+\[(a \lor b) \lor (\neg a \land \neg b) \tag{1}\]
+
+<p>is an example of a well-formed formula according the the language of sentential logic (LSL). However,</p>
+
+\[ab\land c \neg\]
+
+<p>is not. An axiom of sentential logic is</p>
+
+\[a \lor \neg a\]
+
+<p>which is assumed always true. The sole inference rule of sentential logic is</p>
+
+\[\frac{F, F \rightarrow G}{G}\]
+
+<p>where \(F\) and \(G\) are well-formed by LSL. This inference rule may read “If \(F\) [is true], and \(F\) implies \(G\), then \(G\) [is true].” Doesn’t this make sense?</p>
+
+<p>A well-formed formula is a <strong>tautology</strong> if every possible substitution of it’s atomic symbols with \(T\) or \(F\) leads to a \(T\) “outcome.” These substitutions are called <strong>valuations</strong> or <strong>interpretations</strong>. Formula (1) is an example of a tautology since no matter what you substitute for \(a\) and \(b\), the result will be \(T\). Try it!</p>
+
+<p>A well-formed formula is called a <strong>theorem</strong> if it is derivable, or provable, by applying the systems inference rules to it’s axioms.</p>
+
+<p>A system is <strong>complete</strong> if every tautology is a theorem.</p>
+
+<p>Sentential logic is complete.</p>
+
+<p>Resources:</p>
+<ul>
+  <li>Formal systems: <a href="Wikipedia: Formal Systems">https://en.wikipedia.org/wiki/Formal_system</a></li>
+  <li>Completeness <a href="Completeness (logic)">https://en.wikipedia.org/wiki/Completeness_(logic)</a></li>
+  <li>Formalization of Sentential Logic: <a href="Wolfram MathWorld: Propositional Calculous">https://mathworld.wolfram.com/PropositionalCalculus.html</a></li>
+  <li>More about Sentential Logic: Wikipedia: <a href="Wikipedia: Propositional Calculous">https://en.wikipedia.org/wiki/Propositional_calculus</a></li>
+</ul>
+
+<h2 id="first-order-logic">First-Order Logic</h2>
+<p><strong>First-order logic</strong>, or predicate calculous, is a class of systems extended from sentential logic. In addition to the functionality given by sentential logic, first-order logic allows for the use of qualifiers such as \(\forall\) (forall) and \(\exists\) (exists), non-logical symbols, as well as predicates which describe relations between non-logical atomic symbols. Non-logical symbols refer to those “variables” which need not to have the value \(T\) or \(F\).</p>
+
+<p>Zermelo-Fraenkel set theory (ZF) is the standard formalization of set theories’ formal system. This will be very familiar. In this system \(\in\) is a predicate describing a relation between some object (which may be a set itself) and a set. Consider the following axiom in ZF set theory: \begin{align}
+    \forall x \forall y [\forall z(z \in x \leftrightarrow z \in y) \rightarrow x=y]
+\end{align} Can you guess what this axiom defines?</p>
+
+<p>Resources:</p>
+<ul>
+  <li><a href="Wikipedia: First-order Logic">https://en.wikipedia.org/wiki/First-order_logic</a></li>
+</ul>
+
+<h2 id="turing-machines">Turing Machines</h2>
+
+<p>A <strong>decision problem</strong> is one which has a yes/no or true/false answer. A problem is <strong>decidable</strong> if it has such an answer. Otherwise, the problem is said to be <strong>undecidable</strong>.</p>
+
+<p>“A <strong>Turing machine</strong> is a mathematical model of computation that defines an abstract machine that manipulates symbols on a strip of tape according to a table of rules” (<a href="https://en.wikipedia.org/wiki/Turing_machine">Wikipedia: Turing Machine</a>). You can think of it as an algorithm. The <strong>halting problem</strong> is a decision problem that asks to determine whether a Turing machine will halt (e.g. terminate) for a given input.</p>
+
+<p>A set is <strong>recursively enumerable</strong> if it’s elements can be listed by a Turing machine.</p>
+
+<p>Resources:</p>
+<ul>
+  <li>Basic Turing machine stuff: <a href="Wikipedia: Turing Machine">https://en.wikipedia.org/wiki/Turing_machine</a></li>
+  <li>More in-depth Turing machine info: <a href="Stanford Encyclopedia of Philosophy: Turing Machines">https://plato.stanford.edu/entries/turing-machine/</a>. The <em>Stanford Encyclopedia of Philosophy</em> has a lot of great logic-ish stuff.</li>
+</ul>
+
+<h2 id="gödels-first-incompleteness-theorems">Gödels First Incompleteness Theorems</h2>
+
+<p>A formal system is <strong>recursively enumerable</strong> if it’s theorems form a recursively enumerable set.</p>
+
+<p><strong>Gödel’s Incompleteness Theorem</strong> states that no recursively enumerable formal system strong enough to describe all truths about integers is complete. In other words, in every recursively enumerable … there are tautologies that are not theorems. Furthermore, there are a countably infinite number of these formulas.</p>
+
+<p>ZF, and stronger systems such as ZFC (ZF with axiom of choice), satisfy all the “requirements” of Gödels Incompleteness Theorem and are therefore incomplete. The continuum hypothesis is an example of one of those well-formed formulas. The same is true for the halting problem in the context of Turing machines. Extensions of ZF can assert the truthfulness of the continuum hypothesis as an axiom without leading to contradictions. Can you explain why? However, these systems will still have other unprovable tautologies.</p>
+
+<p>Resources:</p>
+<ul>
+  <li><a href="Stanford Encyclopedia of Philosophy: G\&quot;{o}del's Incompleteness Theorem">https://plato.stanford.edu/entries/goedel-incompleteness/</a></li>
+</ul>
+
+<p>TODO: Need to finish</p>
+
+<!-- ## Computable Model Theory
+**Model theory** is the field of mathematics that aims to use tools from abstract algebra to study relationships between formal systems.
+
+Resources:
+- [https://en.wikipedia.org/wiki/Model_theory](Wikipedia: Model Theory) -->
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+  const randomHex = () => {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+  };
+  DIRS = ["right", "top", "top left", "top right"]
+  
+  dir = DIRS[Math.floor(Math.random() * 4)]
+
+  style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+
+  colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+  </script>
+</html>

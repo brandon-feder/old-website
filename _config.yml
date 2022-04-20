@@ -1,0 +1,21 @@
+title: Brandon's Website
+
+description: >- # this means to ignore newlines until "baseurl:"
+  This is Brandon Feder's website. Here he posts information about the
+  projects he is working on as well as resources people he is working
+  with may find useful.
+
+email: brandon.e.feder@gmai.com
+phone: (609)-250-8622
+baseurl : /
+url: https://brandonfeder.com
+
+# Build settings
+theme: minima
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+    

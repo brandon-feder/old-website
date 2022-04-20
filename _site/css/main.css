@@ -1,0 +1,47 @@
+body { margin: 0; padding: 40px; min-height: calc(100vh - 2 * 40px); box-sizing: unset; font-family: 'Quicksand', sans-serif; text-align: justify; }
+
+body a { text-decoration: none; }
+
+header h1 { margin-top: 0; width: fit-content; font-size: 1.6rem; }
+
+header a { color: unset; text-decoration: none; display: inline-grid; }
+
+header a:hover { color: unset; }
+
+header .header-btn { float: right; margin-left: 5px; }
+
+.content { margin: 0 auto 0 auto; width: 100%; }
+
+.content .content-paper { background: #fbfbfb; padding: 20px; min-height: 80vh; max-width: 600px; margin: 0 auto; }
+
+.content h1 { font-size: 1.5rem; }
+
+.content h2 { font-size: 1.4rem; }
+
+.content h3 { font-size: 1.3rem; }
+
+.content h4 { font-size: 1.2rem; }
+
+.content h5 { font-size: 1.1rem; }
+
+.content img { margin: 0 auto; max-width: calc(0.4 * 600px); width: 100%; display: block; }
+
+.content ul, .content ol { text-align: left; }
+
+.content .quick-links { text-align: center; }
+
+.content .quick-links a { margin: 0 10px; }
+
+.content .small-screen-warning { display: none; }
+
+@media screen and (max-width: 500px) { .content .small-screen-warning { display: block; } }
+
+.content .proj-col { width: 50%; float: left; }
+
+.content blockquote { background: #f0f0f0; padding: 20px 20px 5px 20px; }
+
+.content .highlighter-rouge pre.highlight { padding: 15px; background-color: #f0f0f0; }
+
+.content .highlighter-rouge { background-color: #fbfbfb; }
+
+/*# sourceMappingURL=main.css.map */
