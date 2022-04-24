@@ -64,21 +64,21 @@
             <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
           
 
-          <p>My website, the place where you are reading this, was a small project I worked on for 2-3 days. I wanted one place to post records of the projects I have worked on, as well as resources for people working on those projects with me.</p>
+          <p>My website, the place where you are reading this, was a small project I worked on for 3-4 days. I wanted one place to post records of the projects I have worked on, as well as resources for people working on those projects with me.</p>
 
 <p>I wrote this website using <a href="https://jekyllrb.com/">Jekyll</a>, an open source, simple, static website generator. I setup the websites layout, header, etc. using HTML and SASS, but Jekyll allows me to type the main content on each page in Markdown.</p>
 
-<p>In addition, Jekyll provides support for <a href="https://shopify.github.io/liquid/">Liquid</a> templating which allows automatic-writing of HTML code based off of variables defined in each pages YAML header. This can be seen in action on the <a href="/projects.html">projects page</a>.</p>
+<p>In addition, Jekyll provides support for <a href="https://shopify.github.io/liquid/">Liquid</a> templating which allows automatic-writing of HTML based off of variables given by Jekyll or defined at the top of each page in a YAML header. For an example, look at the <a href="https://github.com/brandon-feder/brandon-feder.github.io/edit/main/projects.md]">source code for <code class="language-plaintext highlighter-rouge">/projects.md</code></a>.</p>
 
-<p>I also use <a href="https://getbootstrap.com/">Bootstrap 5</a> and the new Bootstrap icons.</p>
+<p>I included <a href="https://getbootstrap.com/">Bootstrap 5</a> and the new Bootstrap 5 icons, though I could have probably done without the former.</p>
 
-<p>I included <a href="https://www.mathjax.org/">MathJax</a> so I could write LaTeX math equations like this:</p>
+<p>I included <a href="https://www.mathjax.org/">MathJax</a> so I could write LaTeX math equations. For example, the LaTeX <code class="language-plaintext highlighter-rouge">\int_m^{2m} \frac{1}{x} dx = \ln(2)</code> tells MathJax to render</p>
 
 \[\int_m^{2m} \frac{1}{x} dx = \ln(2)\]
 
 <p>Unfortunately, MathJax does not allow the use of the <code class="language-plaintext highlighter-rouge">usepackage</code> command meaning that I can only use the base LaTeX functionality.</p>
 
-<p>Finally, I got kramdown, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/">rogue</a> to perform syntax highlighting.</p>
+<p>Finally, I got <a href="https://kramdown.gettalong.org/">Kramdown</a>, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/">Rogue</a> to perform language-specific syntax highlighting:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span>
@@ -90,7 +90,8 @@
 <span class="k">print</span><span class="p">(</span><span class="s">"The Area Is:"</span><span class="p">,</span> <span class="n">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p>That’s it! If you want to set something like this up, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io">this projects github repo</a>.</p>
+<p>That’s it! If you want to set something like this up for yourself, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io">this project
+‘s github repo</a>.</p>
 
         </div>
       </div>
@@ -99,16 +100,17 @@
 
 
   <script type="text/javascript">
-  const randomHex = () => {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return '#' + n.slice(0, 6);
-  };
-  DIRS = ["right", "top", "top left", "top right"]
-  
-  dir = DIRS[Math.floor(Math.random() * 4)]
+    const randomHex = () => {
+      let n = (Math.random() * 0xfffff * 1000000).toString(16);
+      return '#' + n.slice(0, 6);
+    };
+    
+    DIRS = ["right", "top", "top left", "top right"]
 
-  style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+    dir = DIRS[Math.floor(Math.random() * 4)]
 
-  colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+
+    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
   </script>
 </html>

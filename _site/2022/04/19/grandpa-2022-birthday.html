@@ -64,7 +64,32 @@
             <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
           
 
-          <p>For my Grandfather’s 2022 birthday, I wrote a program that renders the <a href="https://en.wikipedia.org/wiki/Buddhabrot">Budhabrot fractal</a> at a very high definition using my computer’s NVIDIA 2060 Super. I then bought him a wall-print from <a href="www.shutterfly.com">Shutterfly</a>.</p>
+          <p>For my Grandfather’s 2022 birthday, I wrote a program that renders the <a href="https://en.wikipedia.org/wiki/Buddhabrot" target="_blank">Budhabrot fractal</a> at a very high definition using my computer’s NVIDIA 2060 Super. I then bought him a wall-print from <a href="www.shutterfly.com" target="_blank">Shutterfly</a>.</p>
+
+<h2 id="what-is-the-budhabrot">What is the Budhabrot?</h2>
+<p>Two understand the Budhabrot fractal, you need to understand what how to render the Mandelbrot fractal. I would encourage you to watch these two videos:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NGMRB4O922I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2JUAojvFpCo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>The algorithm that draws the Budhabrot fractal is very slightly different from the one used to draw the Mandelbrot fractal.</p>
+
+<p>When drawing the simplest representation of the Mandelbrot fractal, you color every point, \(c\), black if</p>
+
+\[z_{n+1} = z_{n} + c \tag{1}\]
+
+<p>does not diverge where \(z_0 = 0\). Every pixel in the image is therefore black or white, on or off, divergent or not.</p>
+
+<p><img src="/assets/mandel-bw.jpg" alt="Mandelbrot Fractal" /></p>
+
+<p>The fancy colorings online show other aspects of the set itself, most commonly the rate of divergence of those points not in the set. However, that is not important right now.</p>
+
+<p>Unlike the Mandelbrot set, the drawing of the Budhabrot fractal is a heatmap where each pixel has a “heat” or “activity” value associated with it. To figure out this “heat,” you choose millions, billions, or in my case trillions of random values for \(c\). Then, for every \(z_n\) generated from (1), you increment the pixel’s value for which \(z_n\) is in. This video illustrates the algorithm well:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4V5EIlFTqrk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="the-actual-programming">The Actual Programming</h2>
 
 <p>For the program itself, I cloned one of my old Mandelbrot set rendering codes and adjusted it slightly to render the Budhabrot instead. I then implemented a trick that uses Monte-Carlo importance estimation to decrease the computation time. There are a few other things going on that you can read about here:</p>
 
@@ -84,7 +109,11 @@
 
 <p>You can get the full render from my Google Drive <a href="https://drive.google.com/drive/folders/1eL0HmrvK0zet2toaUuTkjs0Bk9ki8IOV?usp=sharing" target="_blank">here</a>.</p>
 
-<div class=" alert alert-danger">Do not open the normal and definitely not the huge photo unless you know what you are doing. It will likely crash your computer.</div>
+<div class=" alert alert-danger">Do not open the normal and definitely not the huge photo unless you know what you are doing. It will likely crash your computer. If you don't know if you know what you are doing, then you don't know what you are doing.</div>
+
+<p>If you understand the math behind the Mandelbrot and Budhabrot set’s, you can construct quite a nice allusion between the divergent points and this song:</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sdAOoB5ML0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 
         </div>
@@ -94,16 +123,17 @@
 
 
   <script type="text/javascript">
-  const randomHex = () => {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return '#' + n.slice(0, 6);
-  };
-  DIRS = ["right", "top", "top left", "top right"]
-  
-  dir = DIRS[Math.floor(Math.random() * 4)]
+    const randomHex = () => {
+      let n = (Math.random() * 0xfffff * 1000000).toString(16);
+      return '#' + n.slice(0, 6);
+    };
+    
+    DIRS = ["right", "top", "top left", "top right"]
 
-  style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+    dir = DIRS[Math.floor(Math.random() * 4)]
 
-  colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+
+    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
   </script>
 </html>

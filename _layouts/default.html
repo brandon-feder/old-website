@@ -72,16 +72,17 @@
 
 
   <script type="text/javascript">
-  const randomHex = () => {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return '#' + n.slice(0, 6);
-  };
-  DIRS = ["right", "top", "top left", "top right"]
-  
-  dir = DIRS[Math.floor(Math.random() * 4)]
+    const randomHex = () => {
+      let n = (Math.random() * 0xfffff * 1000000).toString(16);
+      return '#' + n.slice(0, 6);
+    };
+    
+    DIRS = ["right", "top", "top left", "top right"]
 
-  style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+    dir = DIRS[Math.floor(Math.random() * 4)]
 
-  colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+
+    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
   </script>
 </html>
