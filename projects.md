@@ -1,32 +1,21 @@
 ---
 layout: default
 title: Brandon's Projects
-
-gradient_dir: "top right"
-gradient_start: "#e80000"
-gradient_end: "#00b5c8"
-
 not_post: true
 ---
 
 # My Projects
 
-<div class="proj-col">
-    <h3>Current Projects</h3>
-    <ul>
-    {% for post in site.posts %}
-        {% if post.categories contains "current" %}
-            <li><a href="{{ post.url }}">{{post.title}}</a></li>
-        {% endif %}
-    {% endfor %}
-    </ul>
-</div>
+<ul>
+{% for proj in site.projects %}
+{% if proj.categories contains "starred" %}
+		<li><i class="bi bi-star-fill post-star"></i><a href="{{ proj.url }}">{{proj.title}}</a></li>
+{% endif %}
+{% endfor %}
 
-<div class="proj-col">
-    <h3>All Projects</h3>
-    <ul>
-    {% for post in site.posts %}
-        <li><a href="{{ post.url }}">{{post.title}}</a></li>
-    {% endfor %}
-    </ul>
-</div>
+{% for proj in site.projects %}
+{% unless proj.categories contains "starred" %}
+	<li><a href="{{ proj.url }}">{{proj.title}}</a></li>
+{% endunless %}
+{% endfor %}
+</ul>

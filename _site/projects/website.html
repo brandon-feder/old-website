@@ -29,30 +29,26 @@
     <div class="content">
       <div class="content-paper"> 
         <header>
-          <a href="/"><h1>Brandon's Website</h1></a>
+          <a href="/" class="title">Brandon's Website</a>
           
-          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
             <i class="bi bi-github"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" href="/contact.html"> 
+          <a class="btn btn-primary" href="/contact.html"> 
             <i class="bi bi-telephone"></i>
           </a>
-        </header>
         
-        <hr/>
-
-        <div class="quick-links">
-          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
-          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
-          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
-        </div>
-
-        <hr/>
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
 
         <div class="main-content">
           <div class="small-screen-warning alert alert-danger">
@@ -61,24 +57,24 @@
 
           
             <h1 style="margin-bottom: 0;">My Website</h1>
-            <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
           
+          <br/>
 
           <p>My website, the place where you are reading this, was a small project I worked on for 3-4 days. I wanted one place to post records of the projects I have worked on, as well as resources for people working on those projects with me.</p>
 
-<p>I wrote this website using <a href="https://jekyllrb.com/">Jekyll</a>, an open source, simple, static website generator. I setup the websites layout, header, etc. using HTML and SASS, but Jekyll allows me to type the main content on each page in Markdown.</p>
+<p>I wrote this website using <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, an open source, simple, static website generator. I setup the websites layout, header, etc. using HTML and SASS, but Jekyll allows me to type the main content on each page in Markdown.</p>
 
-<p>In addition, Jekyll provides support for <a href="https://shopify.github.io/liquid/">Liquid</a> templating which allows automatic-writing of HTML based off of variables given by Jekyll or defined at the top of each page in a YAML header. For an example, look at the <a href="https://github.com/brandon-feder/brandon-feder.github.io/edit/main/projects.md]">source code for <code class="language-plaintext highlighter-rouge">/projects.md</code></a>.</p>
+<p>In addition, Jekyll provides support for <a href="https://shopify.github.io/liquid/" target="_blank">Liquid</a> templating which allows automatic-writing of HTML based off of variables given by Jekyll or defined at the top of each page in a YAML header. For an example, look at the <a href="https://github.com/brandon-feder/brandon-feder.github.io/edit/main/projects.md]" target="_blank">source code for <code class="language-plaintext highlighter-rouge">/projects.md</code></a>.</p>
 
-<p>I included <a href="https://getbootstrap.com/">Bootstrap 5</a> and the new Bootstrap 5 icons, though I could have probably done without the former.</p>
+<p>I included <a href="https://getbootstrap.com/" target="_blank">Bootstrap 5</a> and the new Bootstrap 5 icons, though I could have probably done without the former.</p>
 
-<p>I included <a href="https://www.mathjax.org/">MathJax</a> so I could write LaTeX math equations. For example, the LaTeX <code class="language-plaintext highlighter-rouge">\int_m^{2m} \frac{1}{x} dx = \ln(2)</code> tells MathJax to render</p>
+<p>I included <a href="https://www.mathjax.org/" target="_blank">MathJax</a> so I could write LaTeX math equations. For example, the LaTeX <code class="language-plaintext highlighter-rouge">\int_m^{2m} \frac{1}{x} dx = \ln(2)</code> tells MathJax to render</p>
 
 \[\int_m^{2m} \frac{1}{x} dx = \ln(2)\]
 
 <p>Unfortunately, MathJax does not allow the use of the <code class="language-plaintext highlighter-rouge">usepackage</code> command meaning that I can only use the base LaTeX functionality.</p>
 
-<p>Finally, I got <a href="https://kramdown.gettalong.org/">Kramdown</a>, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/">Rogue</a> to perform language-specific syntax highlighting:</p>
+<p>Finally, I got <a href="https://kramdown.gettalong.org/" target="_blank">Kramdown</a>, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/" target="_blank">Rogue</a> to perform language-specific syntax highlighting:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span>
@@ -90,7 +86,7 @@
 <span class="k">print</span><span class="p">(</span><span class="s">"The Area Is:"</span><span class="p">,</span> <span class="n">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p>That’s it! If you want to set something like this up for yourself, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io">this project
+<p>That’s it! If you want to set something like this up for yourself, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io" target="_blank">this project
 ‘s github repo</a>.</p>
 
         </div>
@@ -100,17 +96,25 @@
 
 
   <script type="text/javascript">
+    // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
     DIRS = ["right", "top", "top left", "top right"]
-
     dir = DIRS[Math.floor(Math.random() * 4)]
-
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-
     colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
-  </script>
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
 </html>

@@ -23,36 +23,32 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <!-- Page Title -->
-    <title>2nd Brookhaven Internship</title>
+    <title>Miscellaneous</title>
   </head>
   <body onload="colorBg()">
     <div class="content">
       <div class="content-paper"> 
         <header>
-          <a href="/"><h1>Brandon's Website</h1></a>
+          <a href="/" class="title">Brandon's Website</a>
           
-          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
             <i class="bi bi-github"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" href="/contact.html"> 
+          <a class="btn btn-primary" href="/contact.html"> 
             <i class="bi bi-telephone"></i>
           </a>
-        </header>
         
-        <hr/>
-
-        <div class="quick-links">
-          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
-          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
-          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
-        </div>
-
-        <hr/>
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
 
         <div class="main-content">
           <div class="small-screen-warning alert alert-danger">
@@ -60,11 +56,22 @@
           </div>
 
           
-            <h1 style="margin-bottom: 0;">2nd Brookhaven Internship</h1>
-            <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
+            <h1 style="margin-bottom: 0;">Miscellaneous</h1>
           
+          <br/>
 
-          <p>TODO: Finish</p>
+          <p>This post is just a collection of miscellaneous stuff that I wanted to add that are not significant enough to create their own post for.</p>
+
+<p><strong>From 8/19/22:</strong></p>
+
+<p><strong>From 6/27/22:</strong>
+Here is a scary/funny picture of me:
+<img src="/assets/line-brandon.jpeg" alt="Scary Picture Of Brandon" /></p>
+
+<p><strong>From 6/24/22:</strong></p>
+<center>
+"Time flies like an arrow. Fruit flies like a bananna."
+</center>
 
         </div>
       </div>
@@ -73,17 +80,25 @@
 
 
   <script type="text/javascript">
+    // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
     DIRS = ["right", "top", "top left", "top right"]
-
     dir = DIRS[Math.floor(Math.random() * 4)]
-
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-
     colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
-  </script>
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
 </html>

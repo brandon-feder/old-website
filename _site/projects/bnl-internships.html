@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- My styles -->
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- Page Title -->
+    <title>Brookhaven Internships</title>
+  </head>
+  <body onload="colorBg()">
+    <div class="content">
+      <div class="content-paper"> 
+        <header>
+          <a href="/" class="title">Brandon's Website</a>
+          
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
+            <i class="bi bi-github"></i>
+          </a>
+
+          <a class="btn btn-primary" href="/contact.html"> 
+            <i class="bi bi-telephone"></i>
+          </a>
+        
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
+
+        <div class="main-content">
+          <div class="small-screen-warning alert alert-danger">
+            My website does not work well on mobile devices. I would suggest using your computer.
+          </div>
+
+          
+            <h1 style="margin-bottom: 0;">Brookhaven Internships</h1>
+          
+          <br/>
+
+          <p>I have interned on and off at <a href="https://www.bnl.gov/world/" target="_blank">Brookhaven National Laboratory</a> (BNL) since November 2020. Since then, I have worked under Anže Slosar then Brett Viren on three seperate projects.</p>
+
+<h3 id="frb-detection">FRB Detection</h3>
+<p>I speant several months working on prototype algorithms for real time detection of <a href="https://en.wikipedia.org/wiki/Fast_radio_burst" target="_blank">fast radio bursts</a> (FRB). An implementation of the algorithm did run briefly on Brookhaven’s BMX telescope, but has not been run recently due to ongoing work on the telescope and plans to build a larger, more permanent replacement.</p>
+
+<h3 id="wirecell-toolkit-gpu-accelerated-fft-support">WireCell Toolkit GPU Accelerated FFT Support</h3>
+<p>The second project I worked on was with Brett Viren. During the fall of 2021, I spent several weeks writting a package for the <a href="https://github.com/brettviren/wire-cell-toolkit" target="_blank"><code class="language-plaintext highlighter-rouge">WireCell Toolkit</code></a> (WCT) which provides support for GPU-accelerated Discrete Fourier Transforms using NVIDIA’s <code class="language-plaintext highlighter-rouge">cuFFT</code> package. This package has since been merged with WCT and is a permanent part of the software.</p>
+
+<h3 id="dune-time-slice-deghosting">DUNE Time-Slice Deghosting</h3>
+<p>The <a href="https://www.dunescience.org/" target="_blank">Deep Underground Neutrino Experiment</a> (DUNE) is an international experiment with the goal of learning more about <a href="https://www.scientificamerican.com/article/what-is-a-neutrino/">neutrinos</a>. DUNE uses <a href="https://en.wikipedia.org/wiki/Time_projection_chamber" target="_blank">Liquid Argon Time Projection Chambers</a> (LArTPC) to indirecrlt measure these neutrinos.</p>
+
+<p>Very very simply, LArTPCs are a very large and expensive paralel-plate capacitor filled with liquid argon. In between the capacitor’s two plates lie three planes of parallel wires each of witch are rotated at different angles. In the figure below, these planes of wires are labeled U, V, and Y in the below figure. When a neutrino enters the detector, it may interact with the other matter in which case many electically charged particles and photons will be released. These photons are not effected by the capacitor’s internal electric field and are eventually detected by small light-sensitive diodes around the outside of the capacitor. The electically charged particles are effected by the electic field and drift at constant speed towards the planes of wires. As these particles near a wire, they induce an electric current in the wire. The induced currents from the V and Y wire planes are depicted on the right of the figure below. Using information from the photons and charged particles, it is possible to reconstruct the path of the neutrino.</p>
+
+<p><img src="/assets/tpc-wires.png" alt="" style="max-width: 100%" /></p>
+
+<p>The process of reconstructing the electrically charged particles possition from the wire plane waveform is a process called tomographic reconstruction. Unfortunetly, there is amiguity about the position of these charged particles. It is not possible to know for sure where a charged particle was from the current it induced on a wire.</p>
+
+<p>Currently, there are two aproaches to resolve this issue. The first, and the method currently used by the LArTPC community, is a series of ad-hoc algorithms and programming teqniques that have been developed over an extended period of time. Many of these algorithms are slower then needed.</p>
+
+<p>The second aproach is to use neural networks which is faster, but needs to be trained on biased simulated data.</p>
+
+<p>I was tasked with creating a new algorithm for performing the tomographic reconstruction. First, I build a hetrogenous graph to represent the relationship between all the data. Then, using the formality of <a href="https://arxiv.org/pdf/1806.01261.pdf">this paper</a>, I build constraint functions that describe how information should be propogated throughout the graph. This teqnique is fast, scalable, versatile, and easily parralellizable. More details about the implementation can be found on the <a href="https://github.com/brandon-feder/wire-cell-constraint">projects GitHub repo</a>.</p>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+    // Generate random background
+    const randomHex = () => {
+      let n = (Math.random() * 0xfffff * 1000000).toString(16);
+      return '#' + n.slice(0, 6);
+    };
+    
+    DIRS = ["right", "top", "top left", "top right"]
+    dir = DIRS[Math.floor(Math.random() * 4)]
+    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
+    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
+</html>

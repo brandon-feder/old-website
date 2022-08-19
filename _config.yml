@@ -1,18 +1,19 @@
+# Website setup
 title: Brandon's Website
+description: >-
+  Hi. My name is Brandon. This is my website.
 
-description: >- # this means to ignore newlines until "baseurl:"
-  This is Brandon Feder's website. Here he posts information about the
-  projects he is working on as well as resources people he is working
-  with may find useful.
-
+# Contact Info
 email: brandon.e.feder@gmai.com
-phone: (609)-250-8622
 baseurl : /
 url: https://brandonfeder.com
 
 # Build settings
 theme: minima
-
 markdown: kramdown
 highlighter: rouge
     
+# Collections
+collections:
+  projects:
+    output: true

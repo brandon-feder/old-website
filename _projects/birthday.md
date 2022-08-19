@@ -48,10 +48,3 @@ The original code, which you can find on my GitHub, was already GPU accelerated.
 
 You can get the full render from my Google Drive [here](https://drive.google.com/drive/folders/1eL0HmrvK0zet2toaUuTkjs0Bk9ki8IOV?usp=sharing){:target="_blank"}.
 
-<div class=" alert alert-danger">Do not open the normal and definitely not the huge photo unless you know what you are doing. It will likely crash your computer. If you don't know if you know what you are doing, then you don't know what you are doing.</div>
-
-If you understand the math behind the Mandelbrot and Budhabrot set's, you can construct quite a nice allusion between the divergent points and this song:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sdAOoB5ML0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-

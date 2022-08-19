@@ -1,11 +1,6 @@
 ---
 layout: default
 title: Contact Me
-
-gradient_dir: "bottom"
-gradient_start: "#3cce7c"
-gradient_end: "#db56b9"
-
 not_post: true
 ---
 

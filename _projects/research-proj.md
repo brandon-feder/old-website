@@ -8,6 +8,8 @@ gradient_start: "#e32fa5"
 gradient_end: "#5862ff"
 ---
 
+<span>**Update 6/27/22:** *While I am still participating in my schools research project, this description of the project has changed enough that this page deserves a rewrite. This is a project for later.*</span>
+
 I am participating in my school’s (Princeton International School of Math and Science [PRIMS]) research program. In this program we are given two years to do research in some STEM field that we are interested in.
 
 I am researching an area of mathematical-logic which studies relationships between formal languages using tools from abstract algebra and category theory.

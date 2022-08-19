@@ -29,30 +29,26 @@
     <div class="content">
       <div class="content-paper"> 
         <header>
-          <a href="/"><h1>Brandon's Website</h1></a>
+          <a href="/" class="title">Brandon's Website</a>
           
-          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
             <i class="bi bi-github"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" href="/contact.html"> 
+          <a class="btn btn-primary" href="/contact.html"> 
             <i class="bi bi-telephone"></i>
           </a>
-        </header>
         
-        <hr/>
-
-        <div class="quick-links">
-          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
-          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
-          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
-        </div>
-
-        <hr/>
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
 
         <div class="main-content">
           <div class="small-screen-warning alert alert-danger">
@@ -60,10 +56,13 @@
           </div>
 
           
+          <br/>
 
           <h2 id="about-this-page">About this page</h2>
 
 <p>Hello. My name is Brandon Feder! I am a highschool math and computer science enthusiast. Chances are, if I am not doing school work, you can find my programming or solving some math problem on my laptop and iPad.</p>
+
+<p>To see what I am up to, visit the <a href="projects.html">projects page</a>.</p>
 
 <p>I also have to lovely cats: Loki and Lila. Here is Loki and I.</p>
 
@@ -76,17 +75,25 @@
 
 
   <script type="text/javascript">
+    // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
     DIRS = ["right", "top", "top left", "top right"]
-
     dir = DIRS[Math.floor(Math.random() * 4)]
-
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-
     colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
-  </script>
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
 </html>

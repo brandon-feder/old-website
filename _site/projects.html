@@ -29,30 +29,26 @@
     <div class="content">
       <div class="content-paper"> 
         <header>
-          <a href="/"><h1>Brandon's Website</h1></a>
+          <a href="/" class="title">Brandon's Website</a>
           
-          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
             <i class="bi bi-github"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" href="/contact.html"> 
+          <a class="btn btn-primary" href="/contact.html"> 
             <i class="bi bi-telephone"></i>
           </a>
-        </header>
         
-        <hr/>
-
-        <div class="quick-links">
-          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
-          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
-          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
-        </div>
-
-        <hr/>
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
 
         <div class="main-content">
           <div class="small-screen-warning alert alert-danger">
@@ -60,42 +56,45 @@
           </div>
 
           
+          <br/>
 
           <h1 id="my-projects">My Projects</h1>
 
-<div class="proj-col">
-    <h3>Current Projects</h3>
-    <ul>
-    
-        
-    
-        
-            <li><a href="/current/2022/04/19/research-proj.html">Research Project</a></li>
-        
-    
-        
-    
-        
-            <li><a href="/current/2022/04/19/bnl-internship-2.html">2nd Brookhaven Internship</a></li>
-        
-    
-    </ul>
-</div>
+<ul>
 
-<div class="proj-col">
-    <h3>All Projects</h3>
-    <ul>
-    
-        <li><a href="/2022/04/19/website.html">My Website</a></li>
-    
-        <li><a href="/current/2022/04/19/research-proj.html">Research Project</a></li>
-    
-        <li><a href="/2022/04/19/grandpa-2022-birthday.html">Grandpa's 2022 Birthday</a></li>
-    
-        <li><a href="/current/2022/04/19/bnl-internship-2.html">2nd Brookhaven Internship</a></li>
-    
-    </ul>
-</div>
+
+
+
+		<li><i class="bi bi-star-fill post-star"></i><a href="/projects/bnl-internships.html">Brookhaven Internships</a></li>
+
+
+
+		<li><i class="bi bi-star-fill post-star"></i><a href="/projects/misc.html">Miscellaneous</a></li>
+
+
+
+
+
+
+
+
+
+	<li><a href="/projects/birthday.html">Grandpa's 2022 Birthday</a></li>
+
+
+
+
+
+
+
+	<li><a href="/projects/research-proj.html">Research Project</a></li>
+
+
+
+	<li><a href="/projects/website.html">My Website</a></li>
+
+
+</ul>
 
         </div>
       </div>
@@ -104,17 +103,25 @@
 
 
   <script type="text/javascript">
+    // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
     DIRS = ["right", "top", "top left", "top right"]
-
     dir = DIRS[Math.floor(Math.random() * 4)]
-
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-
     colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
-  </script>
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
 </html>

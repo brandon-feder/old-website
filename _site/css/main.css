@@ -1,14 +1,20 @@
-body { margin: 0; padding: 40px; min-height: calc(100vh - 2 * 40px); box-sizing: unset; font-family: 'Quicksand', sans-serif; text-align: justify; }
+body { margin: 0; padding: 40px; min-height: calc(100vh - 2 * 40px); box-sizing: unset; font-family: 'Quicksand', sans-serif; color: #3e3e3e; }
 
 body a { text-decoration: none; }
 
 header h1 { margin-top: 0; width: fit-content; font-size: 1.6rem; }
 
-header a { color: unset; text-decoration: none; display: inline-grid; }
+header a.title { display: inline-block; color: black; font-size: 1.6rem; }
 
-header a:hover { color: unset; }
+header a.btn { color: #fff; text-decoration: none; display: inline-grid; }
 
-header .header-btn { float: right; margin-left: 5px; }
+header a.btn:hover { color: unset; }
+
+header .btn { float: right; margin-left: 5px; }
+
+header .quick-links { text-align: center; }
+
+header .quick-links a { margin: 0 10px; }
 
 .content { margin: 0 auto 0 auto; width: 100%; }
 
@@ -28,9 +34,11 @@ header .header-btn { float: right; margin-left: 5px; }
 
 .content ul, .content ol { text-align: left; }
 
-.content .quick-links { text-align: center; }
+.content p span.proof { text-indent: 30px; margin-top: -20px; display: block; }
 
-.content .quick-links a { margin: 0 10px; }
+.content .hl-text { display: flex; align-items: center; color: #313131; font-weight: bold; }
+
+.content .hl-text:after { margin-left: 10px; content: ''; flex: 1; height: 1px; background-color: #313131; }
 
 .content .small-screen-warning { display: none; }
 
@@ -38,10 +46,14 @@ header .header-btn { float: right; margin-left: 5px; }
 
 .content .proj-col { width: 50%; float: left; }
 
-.content blockquote { background: #f0f0f0; padding: 20px 20px 5px 20px; }
+.content .theorem { font-style: italic; }
+
+.content .proof { margin-top: -20px; text-indent: 30px; }
 
 .content .highlighter-rouge pre.highlight { padding: 15px; background-color: #f0f0f0; }
 
 .content .highlighter-rouge { background-color: #fbfbfb; }
+
+.content .post-star { margin-right: 8px; color: #ffcb4f; text-shadow: 1px 1px 1px #ff8f00; }
 
 /*# sourceMappingURL=main.css.map */

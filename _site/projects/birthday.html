@@ -29,30 +29,26 @@
     <div class="content">
       <div class="content-paper"> 
         <header>
-          <a href="/"><h1>Brandon's Website</h1></a>
+          <a href="/" class="title">Brandon's Website</a>
           
-          <a class="btn btn-primary header-btn" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
+          <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" target="_blank" href="https://github.com/brandon-feder"> 
+          <a class="btn btn-primary" target="_blank" href="https://github.com/brandon-feder"> 
             <i class="bi bi-github"></i>
           </a>
 
-          <a class="btn btn-primary header-btn" href="/contact.html"> 
+          <a class="btn btn-primary" href="/contact.html"> 
             <i class="bi bi-telephone"></i>
           </a>
-        </header>
         
-        <hr/>
-
-        <div class="quick-links">
-          <a href="/"><i class="bi bi-house-door"></i> Home</a> |
-          <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
-          <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
-        </div>
-
-        <hr/>
+          <hr/><div class="quick-links">
+            <a href="/"><i class="bi bi-house-door"></i> Home</a> |
+            <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
+            <a href="/projects.html"><i class="bi bi-kanban"></i> Projects</a>
+          </div><hr/>
+        </header>
 
         <div class="main-content">
           <div class="small-screen-warning alert alert-danger">
@@ -61,8 +57,8 @@
 
           
             <h1 style="margin-bottom: 0;">Grandpa's 2022 Birthday</h1>
-            <span style="display: block; padding-bottom: 10px;">Last update: 19 April 2022</span>
           
+          <br/>
 
           <p>For my Grandfather’s 2022 birthday, I wrote a program that renders the <a href="https://en.wikipedia.org/wiki/Buddhabrot" target="_blank">Budhabrot fractal</a> at a very high definition using my computer’s NVIDIA 2060 Super. I then bought him a wall-print from <a href="www.shutterfly.com" target="_blank">Shutterfly</a>.</p>
 
@@ -109,12 +105,6 @@
 
 <p>You can get the full render from my Google Drive <a href="https://drive.google.com/drive/folders/1eL0HmrvK0zet2toaUuTkjs0Bk9ki8IOV?usp=sharing" target="_blank">here</a>.</p>
 
-<div class=" alert alert-danger">Do not open the normal and definitely not the huge photo unless you know what you are doing. It will likely crash your computer. If you don't know if you know what you are doing, then you don't know what you are doing.</div>
-
-<p>If you understand the math behind the Mandelbrot and Budhabrot set’s, you can construct quite a nice allusion between the divergent points and this song:</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sdAOoB5ML0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
 
         </div>
       </div>
@@ -123,17 +113,25 @@
 
 
   <script type="text/javascript">
+    // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
     DIRS = ["right", "top", "top left", "top right"]
-
     dir = DIRS[Math.floor(Math.random() * 4)]
-
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-
     colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
-  </script>
+
+    Element.prototype.appendAfter = function(element) {
+      element.parentNode.insertBefore(this, element.nextSibling);
+    }, false;
+
+    Array.from(document.getElementsByClassName("proof")).forEach(element => {
+      newTag = document.createElement("span")
+      newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"
+      newTag.appendAfter(element.lastChild)
+    });
+</script>
 </html>

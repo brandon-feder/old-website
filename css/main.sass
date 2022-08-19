@@ -1,25 +1,18 @@
 ---
 ---
 
-$body-padding: 40px 
+$body-padding: 40px
 $max-paper-width: 600px
-
 $small-screen-width: 500px
-
 $paper-color: #fbfbfb
 
 body
-
     margin: 0
-    // background-image: linear-gradient(to bottom right, #9700e8, #3200a8)
-
     padding: $body-padding
     min-height: calc(100vh - 2 * #{$body-padding})
-
     box-sizing: unset // Overide bootstrap
-
     font-family: 'Quicksand', sans-serif
-    text-align: justify
+    color: #3e3e3e
 
     a
         text-decoration: none
@@ -29,18 +22,28 @@ header
         margin-top: 0
         width: fit-content
         font-size: 1.6rem
-    
-    a
-        color: unset
+
+    a.title
+        display: inline-block
+        color: black
+        font-size: 1.6rem
+
+    a.btn
+        color: #fff
         text-decoration: none
         display: inline-grid
-    
-    a:hover
+
+    a.btn:hover
         color: unset
-    
-    .header-btn
+
+    .btn
         float: right
         margin-left: 5px
+
+    .quick-links
+        text-align: center
+        a
+            margin: 0 10px
 
 .content
     margin: 0 auto 0 auto
@@ -52,7 +55,7 @@ header
         min-height: 80vh
         max-width: $max-paper-width
         margin: 0 auto
-    
+        
     h1
         font-size: 1.5rem
     h2
@@ -73,11 +76,24 @@ header
     ul, ol
         text-align: left
 
-    .quick-links
-        text-align: center
-        a
-            margin: 0 10px
-    
+    p span.proof
+        text-indent: 30px
+        margin-top: -20px
+        display: block
+
+    .hl-text
+        display: flex
+        align-items: center
+        color: #313131
+        font-weight: bold
+        
+        &:after
+            margin-left: 10px
+            content: ''
+            flex: 1
+            height: 1px
+            background-color: #313131
+
     .small-screen-warning
         display: none
 
@@ -87,14 +103,22 @@ header
     .proj-col
         width: 50%
         float: left
+
+    .theorem
+        font-style: italic
     
-    blockquote
-        background: #f0f0f0
-        padding: 20px 20px 5px 20px
-    
+    .proof
+        margin-top: -20px
+        text-indent: 30px
+        
     .highlighter-rouge pre.highlight
         padding: 15px
         background-color: #f0f0f0
 
     .highlighter-rouge
         background-color: $paper-color
+
+    .post-star
+        margin-right: 8px
+        color: #ffcb4f
+        text-shadow: 1px 1px 1px #ff8f00
