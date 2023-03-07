@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Brookhaven Internships"
-category: starred
 ---
 
 I have interned on and off at [Brookhaven National Laboratory](https://www.bnl.gov/world/){:target="_blank"} (BNL) since November 2020. Since then, I have worked under An&#382;e Slosar then Brett Viren on three seperate projects.
