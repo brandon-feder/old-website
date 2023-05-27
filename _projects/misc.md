@@ -4,6 +4,10 @@ title: "Miscellaneous"
 categories: starred
 ---
 
+**From 5/26/23**
+I met Dr. David MacMillan, the winner of the 2021 Nobel Prize in Chemistry.
+![MacMillan and I](/asserts/macmillan.png)
+
 **From 5/9/23**:
 
 From [The Code Project Insider](https://www.codeproject.com/Insider.aspx){:target="_blank"}:
