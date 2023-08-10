@@ -25,7 +25,8 @@
     <!-- Page Title -->
     <title>Contact Me</title>
   </head>
-  <body onload="colorBg()">
+  <!-- <body onload="colorBg()"> -->
+    <body>
     <div class="content">
       <div class="content-paper"> 
         <header>
@@ -61,9 +62,7 @@
           <h1 id="contact-me">Contact Me</h1>
 <p>Feel free to contact me!</p>
 
-<p><strong>Email</strong>: brandon.e.feder@gmail.com<br />
-<strong>Phone</strong>: I’ll give it to you if you email me<br />
-<strong>Insta</strong>: binary_split</p>
+<p><strong>Email</strong>: brandon.e.feder@gmail.com</p>
 
         </div>
       </div>
@@ -81,7 +80,14 @@
     DIRS = ["right", "top", "top left", "top right"]
     dir = DIRS[Math.floor(Math.random() * 4)]
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    
+    // dynamically color
+    document.getElementsByTagName("body")[0].style = style_text;
+    btns = document.getElementsByClassName("btn-primary");
+    for(btn of btns) {
+      btn.style = style_text;
+    }
 
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);

@@ -23,9 +23,10 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <!-- Page Title -->
-    <title>Bubby</title>
+    <title>Grandpa's 2022 Birthday</title>
   </head>
-  <body onload="colorBg()">
+  <!-- <body onload="colorBg()"> -->
+    <body>
     <div class="content">
       <div class="content-paper"> 
         <header>
@@ -56,42 +57,20 @@
           </div>
 
           
-            <h1 style="margin-bottom: 0;">Bubby</h1>
+            <h1 style="margin-bottom: 0;">Grandpa's 2022 Birthday</h1>
           
           <br/>
 
-          <p><strong><em>From 12/10/22:</em></strong> I wrote this for my creative writing class.</p>
+          <p>For my Grandfather’s 2022 birthday, I wrote a program that renders the <a href="https://en.wikipedia.org/wiki/Buddhabrot" target="_blank">Budhabrot fractal</a>. I then bought him a wall-print from <a href="www.shutterfly.com" target="_blank">Shutterfly</a>.</p>
 
-<p>I have so many great memories with you<br />
-like when we’d go to the mall or to the zoo<br />
-or when I’d ask for a scoop of ice cream, but you’d give me two.</p>
+<p>Benedikt Bitterli explains how to efficiently render your own Budhabrot on <a href="https://benedikt-bitterli.me/buddhabrot/" target="_blank">his website</a>. I also referenced <a href="https://erleuchtet.org/2010/07/ridiculously-large-buddhabrot.html" target="_blank">this</a>.</p>
 
-<p>On that Disney cruise,<br />
-when I tripped and got a bruise,<br />
-that was an innocent ruse.</p>
+<p>Here is a VERY-compressed version of the final render:</p>
 
-<p>I wanted you to hug me and tell me I was okay.<br />
-Sometimes I pretended to be tired so next to you I could lay.<br />
-These are the moments I think almost every day.</p>
+<p><img src="/assets/buddhabrot_small_compressed.jpg" alt="Budhabrot Compressed" target="_blank" /></p>
 
-<p>I hate myself for not realizing what was to come sooner.<br />
-Thinking that the doctors would soon find a cure,<br />
-even when across your naked head you had 20 sutures</p>
+<p>You can get the full render <a href="https://drive.google.com/drive/folders/1gzmzXZ7OKuTLMaqhLxYTnjTB-hemVA8n?usp=sharing" target="_blank">here</a>.</p>
 
-<p>even when you couldn’t remember my name,<br />
-even when I left school early and to the hospital I came,<br />
-even as your lungs filled with water, beside you I played a video game.</p>
-
-<p>Everyone has moved on<br />
-like they don’t realize your gone.</p>
-
-<p>Poppy has gotten remarried<br />
-and we no longer visit where you were buried.</p>
-
-<p>Even in your good memories, I don’t rejoice.<br />
-I don’t remember your voice.</p>
-
-<p>And the last place I saw you will forever be in your cascit.</p>
 
         </div>
       </div>
@@ -109,7 +88,14 @@ I don’t remember your voice.</p>
     DIRS = ["right", "top", "top left", "top right"]
     dir = DIRS[Math.floor(Math.random() * 4)]
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    
+    // dynamically color
+    document.getElementsByTagName("body")[0].style = style_text;
+    btns = document.getElementsByClassName("btn-primary");
+    for(btn of btns) {
+      btn.style = style_text;
+    }
 
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);

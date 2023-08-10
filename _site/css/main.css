@@ -16,6 +16,10 @@ header .quick-links { text-align: center; }
 
 header .quick-links a { margin: 0 10px; }
 
+.btn-primary { border: none; transition: 0.15s padding ease; }
+
+.btn-primary:hover { color: #fff !important; padding-left: 20px; padding-right: 20px; }
+
 .content { margin: 0 auto 0 auto; width: 100%; }
 
 .content .content-paper { background: #fbfbfb; padding: 20px; min-height: 80vh; max-width: 600px; margin: 0 auto; }

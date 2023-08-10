@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <!-- Page Title -->
-    <title>{{ page.title }}</title>
+    <title>Brookhaven Internships</title>
   </head>
   <!-- <body onload="colorBg()"> -->
     <body>
@@ -56,12 +56,34 @@
             My website does not work well on mobile devices. I would suggest using your computer.
           </div>
 
-          {% if page.not_post != true %}
-            <h1 style="margin-bottom: 0;">{{page.title}}</h1>
-          {% endif %}
+          
+            <h1 style="margin-bottom: 0;">Brookhaven Internships</h1>
+          
           <br/>
 
-          {{content}}
+          <p>I have interned on and off at <a href="https://www.bnl.gov/world/" target="_blank">Brookhaven National Laboratory</a> (BNL) since November 2020. During this time, I worked under Dr. Anže Slosar, and Dr. Brett Viren on three seperate projects.</p>
+
+<h3 id="frb-detection">FRB Detection</h3>
+<p>I speant several months working on prototype algorithms for real time detection of <a href="https://en.wikipedia.org/wiki/Fast_radio_burst" target="_blank">fast radio bursts</a> (FRB). An implementation of the algorithm ran briefly on Brookhaven’s BMX telescope before getting replaced by a new and improved implementation.</p>
+
+<h3 id="wirecell-toolkit-gpu-accelerated-fft-support">WireCell Toolkit GPU Accelerated FFT Support</h3>
+<p>The second project I worked on was with Brett Viren. During the fall of 2021, I spent several weeks writting a package for <a href="https://github.com/brettviren/wire-cell-toolkit" target="_blank"><code class="language-plaintext highlighter-rouge">WireCell Toolkit</code></a> (WCT) which provided support for GPU-accelerated Discrete Fourier Transforms using NVIDIA’s <code class="language-plaintext highlighter-rouge">cuFFT</code> library. This package has since been merged with WCT.</p>
+
+<h3 id="dune-time-slice-deghosting">DUNE Time-Slice Deghosting</h3>
+<p>The <a href="https://www.dunescience.org/" target="_blank">Deep Underground Neutrino Experiment</a> (DUNE) aims to study the properties of <a href="https://www.scientificamerican.com/article/what-is-a-neutrino/">neutrinos</a> and relies heavely on several <a href="https://en.wikipedia.org/wiki/Time_projection_chamber" target="_blank">Liquid Argon Time Projection Chambers</a> (LArTPC) to do so.</p>
+
+<p>An LArTPC can be though of as large, paralel-plate capacitor filled with liquid argon. In the capacitor lie three planes of parallel wires, each rotated at a different angle.</p>
+
+<p>When a neutrino enters the detector, it leave a trail of negatively charged particles. Such particles are pushed by the TPC’s magnetic field towards the wire-planes. As these particles near a wire, they induce an electric current in that wire. This process is depicted on the right of the figure below.</p>
+
+<p><img src="/assets/tpc-wires.png" alt="" style="max-width: 100%" /></p>
+
+<p>The detector “sess” a projection of the charged particles’ positions. The process of reconstructing the electrically charged particles’ possitions from the wire-plane waveform is called tomographic reconstruction. A naive tomographic reconstruction would lend many “possible” positions of neutrinos.</p>
+
+<p>When I interned, there were two aproaches to resolve this issue. The first was a series of ad-hoc, combersome heuristics developed over an extended period of time. The second aproach was to use neural networks which were faster, but needed to be trained on inherently biased simulated data.</p>
+
+<p>I was tasked with research new algorithms for performing the tomographic reconstruction using the formality of <a href="https://arxiv.org/pdf/1806.01261.pdf" target="_blank">this paper</a>. See the <a href="https://github.com/brandon-feder/wire-cell-constraint" target="_blank">project’s GitHub repo</a> for more information.</p>
+
         </div>
       </div>
     </div>

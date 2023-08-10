@@ -25,7 +25,8 @@
     <!-- Page Title -->
     <title>Brandon's Projects</title>
   </head>
-  <body onload="colorBg()">
+  <!-- <body onload="colorBg()"> -->
+    <body>
     <div class="content">
       <div class="content-paper"> 
         <header>
@@ -60,47 +61,18 @@
 
           <h1 id="my-projects">My Projects</h1>
 
-<ul>
+<p><i class="bi bi-star-fill post-star"></i><a href="/projects/misc.html">Miscellaneous</a></p>
 
+<p><a href="/projects/4-nixos-config.html">My NixOS Config</a></p>
 
+<p><a href="/projects/3-lehigh-internship.html">Lehigh Internships</a></p>
 
+<p><a href="/projects/2-brookhaven-internships.html">Brookhaven Internships</a></p>
 
+<p><a href="/projects/1-birthday.html">Grandpa’s 2022 Birthday</a></p>
 
+<p><a href="/projects/0-website.html">My Website</a></p>
 
-
-
-		<li><i class="bi bi-star-fill post-star"></i><a href="/projects/misc.html">Miscellaneous</a></li>
-
-
-
-
-
-
-
-
-
-	<li><a href="/projects/birthday.html">Grandpa's 2022 Birthday</a></li>
-
-
-
-	<li><a href="/projects/bnl-internships.html">Brookhaven Internships</a></li>
-
-
-
-	<li><a href="/projects/bubby.html">Bubby</a></li>
-
-
-
-
-
-	<li><a href="/projects/research-proj.html">Research Project</a></li>
-
-
-
-	<li><a href="/projects/website.html">My Website</a></li>
-
-
-</ul>
 
         </div>
       </div>
@@ -118,7 +90,14 @@
     DIRS = ["right", "top", "top left", "top right"]
     dir = DIRS[Math.floor(Math.random() * 4)]
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    
+    // dynamically color
+    document.getElementsByTagName("body")[0].style = style_text;
+    btns = document.getElementsByClassName("btn-primary");
+    for(btn of btns) {
+      btn.style = style_text;
+    }
 
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);

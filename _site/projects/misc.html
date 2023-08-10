@@ -25,7 +25,8 @@
     <!-- Page Title -->
     <title>Miscellaneous</title>
   </head>
-  <body onload="colorBg()">
+  <!-- <body onload="colorBg()"> -->
+    <body>
     <div class="content">
       <div class="content-paper"> 
         <header>
@@ -60,7 +61,11 @@
           
           <br/>
 
-          <p><strong>From 5/9/23</strong>:</p>
+          <p><strong>From 5/26/23</strong>
+I met Dr. David MacMillan, the winner of the 2021 Nobel Prize in Chemistry.
+<img src="/assets/macmillan.png" alt="MacMillan and I" /></p>
+
+<p><strong>From 5/9/23</strong>:</p>
 
 <p>From <a href="https://www.codeproject.com/Insider.aspx" target="_blank">The Code Project Insider</a>:</p>
 
@@ -99,7 +104,14 @@ Here is a scary/funny picture of me:
     DIRS = ["right", "top", "top left", "top right"]
     dir = DIRS[Math.floor(Math.random() * 4)]
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    
+    // dynamically color
+    document.getElementsByTagName("body")[0].style = style_text;
+    btns = document.getElementsByClassName("btn-primary");
+    for(btn of btns) {
+      btn.style = style_text;
+    }
 
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);

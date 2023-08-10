@@ -6,7 +6,7 @@ categories: starred
 
 **From 5/26/23**
 I met Dr. David MacMillan, the winner of the 2021 Nobel Prize in Chemistry.
-![MacMillan and I](/asserts/macmillan.png)
+![MacMillan and I](/assets/macmillan.png)
 
 **From 5/9/23**:
 

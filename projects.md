@@ -6,16 +6,14 @@ not_post: true
 
 # My Projects
 
-<ul>
-{% for proj in site.projects %}
+{% for proj in site.projects reversed %}
 {% if proj.categories contains "starred" %}
-		<li><i class="bi bi-star-fill post-star"></i><a href="{{ proj.url }}">{{proj.title}}</a></li>
+<i class="bi bi-star-fill post-star"></i><a href="{{ proj.url }}">{{proj.title}}</a>
 {% endif %}
 {% endfor %}
 
-{% for proj in site.projects %}
+{% for proj in site.projects reversed %}
 {% unless proj.categories contains "starred" %}
-	<li><a href="{{ proj.url }}">{{proj.title}}</a></li>
+<a href="{{ proj.url }}">{{proj.title}}</a>
 {% endunless %}
 {% endfor %}
-</ul>

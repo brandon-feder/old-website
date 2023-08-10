@@ -25,7 +25,8 @@
     <!-- Page Title -->
     <title>Brandon's Website</title>
   </head>
-  <body onload="colorBg()">
+  <!-- <body onload="colorBg()"> -->
+    <body>
     <div class="content">
       <div class="content-paper"> 
         <header>
@@ -60,11 +61,9 @@
 
           <h2 id="about-this-page">About this page</h2>
 
-<p>Hello. My name is Brandon Feder! I am a highschool math and computer science enthusiast. Chances are, if I am not doing school work, you can find my programming or solving some math problem on my laptop and iPad.</p>
+<p>Hello! I, Brandon Feder, am a highschool math and computer science enthusiast. To see what I am up to, visit the <a href="projects.html">projects page</a>.</p>
 
-<p>To see what I am up to, visit the <a href="projects.html">projects page</a>.</p>
-
-<p>I also have to lovely cats: Loki and Lila. Here is Loki and I.</p>
+<p>I also have to lovely cats: Loki and Lila. Here are Loki and I.</p>
 
 <p><img src="/assets/b-holding-loki.jpg" alt="Me and Loki" /></p>
 
@@ -84,7 +83,14 @@
     DIRS = ["right", "top", "top left", "top right"]
     dir = DIRS[Math.floor(Math.random() * 4)]
     style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    
+    // dynamically color
+    document.getElementsByTagName("body")[0].style = style_text;
+    btns = document.getElementsByClassName("btn-primary");
+    for(btn of btns) {
+      btn.style = style_text;
+    }
 
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);
