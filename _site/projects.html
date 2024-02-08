@@ -63,11 +63,11 @@
 
 <p><i class="bi bi-star-fill post-star"></i><a href="/projects/misc.html">Miscellaneous</a></p>
 
-<p><a href="/projects/4-nixos-config.html">My NixOS Config</a></p>
+<p><a href="/projects/4-ring-completion.html">The Utility of Completions</a></p>
 
-<p><a href="/projects/3-lehigh-internship.html">Lehigh Internships</a></p>
+<p><a href="/projects/3-lehigh-internship.html">Energy Deposition in sPHENIX</a></p>
 
-<p><a href="/projects/2-brookhaven-internships.html">Brookhaven Internships</a></p>
+<p><a href="/projects/2-brookhaven-internships.html">Brookhaven Internship</a></p>
 
 <p><a href="/projects/1-birthday.html">Grandpa’s 2022 Birthday</a></p>
 
@@ -81,16 +81,26 @@
 
 
   <script type="text/javascript">
+    USE_RANDOM_BG = false;
+        
     // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
-    DIRS = ["right", "top", "top left", "top right"]
-    dir = DIRS[Math.floor(Math.random() * 4)]
-    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    if(USE_RANDOM_BG) {
+      console.log("Using a random color!");
+      // DIRS = ["right", "top", "top left", "top right"]
+      // dir = DIRS[Math.floor(Math.random() * 4)]
+      dir = "bottom right"
+      style_text = "background-image: linear-gradient(to " + dir + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ")";
+    } else {
+      style_text = "background-image: linear-gradient(to right bottom, rgb(83, 6, 251), rgb(141, 2, 164), rgb(255, 69, 148))";
+    }
     
     // dynamically color
     document.getElementsByTagName("body")[0].style = style_text;
@@ -98,11 +108,11 @@
     for(btn of btns) {
       btn.style = style_text;
     }
-
+    
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);
     }, false;
-
+    
     Array.from(document.getElementsByClassName("proof")).forEach(element => {
       newTag = document.createElement("span")
       newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"

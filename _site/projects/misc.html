@@ -58,10 +58,23 @@
 
           
             <h1 style="margin-bottom: 0;">Miscellaneous</h1>
+            <a href="/projects.html">
+              <i class="bi bi-arrow-left"></i>
+              Back to projects.
+            </a>
+            <br>
           
           <br/>
 
-          <p><strong>From 5/26/23</strong>
+          <p><strong>From 8/6/23</strong></p>
+
+<p>Here is an image of me next to the sPHENIX experiment.</p>
+
+<p><img src="/assets/sphenix.jpg" alt="MacMillan and I" /></p>
+
+<p>To learn more about my work on the experiment, click <a href="./3-lehigh-internship.html">here</a>.</p>
+
+<p><strong>From 5/26/23</strong>
 I met Dr. David MacMillan, the winner of the 2021 Nobel Prize in Chemistry.
 <img src="/assets/macmillan.png" alt="MacMillan and I" /></p>
 
@@ -79,9 +92,9 @@ No Mom! It's not a "Messy pile of clothes." It's an L1 cache for fast random acc
 
 <p><a href="https://www.tylervigen.com/spurious-correlations" target="_blank">Spurious Correlations</a></p>
 
-<p><strong>From 6/27/22:</strong>
-Here is a scary/funny picture of me:
-<img src="/assets/line-brandon.jpeg" alt="Scary Picture Of Brandon" /></p>
+<!-- **From 6/27/22:** -->
+<!-- Here is a scary/funny picture of me: -->
+<!-- ![Scary Picture Of Brandon](/assets/line-brandon.jpeg) -->
 
 <p><strong>From 6/24/22:</strong></p>
 <center>
@@ -95,16 +108,26 @@ Here is a scary/funny picture of me:
 
 
   <script type="text/javascript">
+    USE_RANDOM_BG = false;
+        
     // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
-    DIRS = ["right", "top", "top left", "top right"]
-    dir = DIRS[Math.floor(Math.random() * 4)]
-    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    if(USE_RANDOM_BG) {
+      console.log("Using a random color!");
+      // DIRS = ["right", "top", "top left", "top right"]
+      // dir = DIRS[Math.floor(Math.random() * 4)]
+      dir = "bottom right"
+      style_text = "background-image: linear-gradient(to " + dir + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ")";
+    } else {
+      style_text = "background-image: linear-gradient(to right bottom, rgb(83, 6, 251), rgb(141, 2, 164), rgb(255, 69, 148))";
+    }
     
     // dynamically color
     document.getElementsByTagName("body")[0].style = style_text;
@@ -112,11 +135,11 @@ Here is a scary/funny picture of me:
     for(btn of btns) {
       btn.style = style_text;
     }
-
+    
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);
     }, false;
-
+    
     Array.from(document.getElementsByClassName("proof")).forEach(element => {
       newTag = document.createElement("span")
       newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"

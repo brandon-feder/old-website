@@ -58,6 +58,11 @@
 
           
             <h1 style="margin-bottom: 0;">My Website</h1>
+            <a href="/projects.html">
+              <i class="bi bi-arrow-left"></i>
+              Back to projects.
+            </a>
+            <br>
           
           <br/>
 
@@ -77,14 +82,14 @@
 
 <p>Finally, I got <a href="https://kramdown.gettalong.org/" target="_blank">Kramdown</a>, Jekyll’s Markdown interpreter, to use <a href="http://rouge.jneen.net/" target="_blank">Rogue</a> to perform language-specific syntax highlighting:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">math</span>
 <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter Radios: "</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"The Area Is:"</span><span class="p">,</span> <span class="n">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Enter Radios: </span><span class="sh">"</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">The Area Is:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>That’s it! If you want to set something like this up for yourself, feel free to clone <a href="https://github.com/brandon-feder/brandon-feder.github.io" target="_blank">this project
@@ -97,16 +102,26 @@
 
 
   <script type="text/javascript">
+    USE_RANDOM_BG = false;
+        
     // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
-    DIRS = ["right", "top", "top left", "top right"]
-    dir = DIRS[Math.floor(Math.random() * 4)]
-    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    if(USE_RANDOM_BG) {
+      console.log("Using a random color!");
+      // DIRS = ["right", "top", "top left", "top right"]
+      // dir = DIRS[Math.floor(Math.random() * 4)]
+      dir = "bottom right"
+      style_text = "background-image: linear-gradient(to " + dir + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ")";
+    } else {
+      style_text = "background-image: linear-gradient(to right bottom, rgb(83, 6, 251), rgb(141, 2, 164), rgb(255, 69, 148))";
+    }
     
     // dynamically color
     document.getElementsByTagName("body")[0].style = style_text;
@@ -114,11 +129,11 @@
     for(btn of btns) {
       btn.style = style_text;
     }
-
+    
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);
     }, false;
-
+    
     Array.from(document.getElementsByClassName("proof")).forEach(element => {
       newTag = document.createElement("span")
       newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"

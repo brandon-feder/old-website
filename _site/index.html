@@ -61,11 +61,18 @@
 
           <h2 id="about-this-page">About this page</h2>
 
-<p>Hello! I, Brandon Feder, am a highschool math and computer science enthusiast. To see what I am up to, visit the <a href="projects.html">projects page</a>.</p>
+<div>
+    <img src="/assets/headshot.jpg" style="float: left; margin: 0 10px 10px 0;" />
+</div>
 
-<p>I also have to lovely cats: Loki and Lila. Here are Loki and I.</p>
-
-<p><img src="/assets/b-holding-loki.jpg" alt="Me and Loki" /></p>
+<div>
+    <p>
+    Hello! I am Brandon Feder, a self-declared amateur mathematician, and a senior in high school. I am particularly interest in the intersection of <a href="https://en.wikipedia.org/wiki/Algebraic_geometry" target="_blank">algebraic geometry</a> and <a href="https://plato.stanford.edu/entries/computability/" target="_blank">computability theory</a>. 
+    </p>
+    <p>
+    Take a look at <a href="projects.html">my projects</a> to see what I'm up to.
+    </p>
+</div>
 
         </div>
       </div>
@@ -74,16 +81,26 @@
 
 
   <script type="text/javascript">
+    USE_RANDOM_BG = false;
+        
     // Generate random background
     const randomHex = () => {
       let n = (Math.random() * 0xfffff * 1000000).toString(16);
       return '#' + n.slice(0, 6);
     };
     
-    DIRS = ["right", "top", "top left", "top right"]
-    dir = DIRS[Math.floor(Math.random() * 4)]
-    style_text = "background-image: linear-gradient(to " + dir + ", " + randomHex() + ", " + randomHex() + ")"
-    // colorBg = () => { document.getElementsByTagName("body")[0].style = style_text; }
+    if(USE_RANDOM_BG) {
+      console.log("Using a random color!");
+      // DIRS = ["right", "top", "top left", "top right"]
+      // dir = DIRS[Math.floor(Math.random() * 4)]
+      dir = "bottom right"
+      style_text = "background-image: linear-gradient(to " + dir + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ", " + 
+        randomHex() + ")";
+    } else {
+      style_text = "background-image: linear-gradient(to right bottom, rgb(83, 6, 251), rgb(141, 2, 164), rgb(255, 69, 148))";
+    }
     
     // dynamically color
     document.getElementsByTagName("body")[0].style = style_text;
@@ -91,11 +108,11 @@
     for(btn of btns) {
       btn.style = style_text;
     }
-
+    
     Element.prototype.appendAfter = function(element) {
       element.parentNode.insertBefore(this, element.nextSibling);
     }, false;
-
+    
     Array.from(document.getElementsByClassName("proof")).forEach(element => {
       newTag = document.createElement("span")
       newTag.innerHTML = "<it class='bi bi-diamond-fill' style='float: right; font-size: 12px;'></it>"

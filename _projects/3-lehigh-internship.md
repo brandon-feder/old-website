@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Lehigh Internships"
+title: "Energy Deposition in sPHENIX"
 ---
 
 In summer 2023, I interned at Lehigh University under Dr. Rosi Reed.

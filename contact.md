@@ -7,4 +7,4 @@ not_post: true
 # Contact Me
 Feel free to contact me!
 
-**Email**: brandon.e.feder@gmail.com
+**Email**: <a href="mailto:brandon.e.feder@gmail.com">brandon.e.feder@gmail.com</a>
