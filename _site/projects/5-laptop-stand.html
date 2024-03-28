@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/main.css" />
 
     <!-- Page Title -->
-    <title>Misc p5 Projects</title>
+    <title>Laptop Stand</title>
   </head>
   <!-- <body onload="colorBg()"> -->
     <body>
@@ -31,7 +31,11 @@
       <div class="content-paper"> 
         <header>
           <a href="/" class="title">Brandon's Website</a>
-          
+
+          <a class="btn btn-primary" href="/assets/resume.pdf" target="_blank"> 
+            <i class="bi bi-file-person-fill"></i>
+          </a>
+
           <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/brandon-feder/"> 
             <i class="bi bi-linkedin"></i>
           </a>
@@ -41,9 +45,9 @@
           </a>
 
           <a class="btn btn-primary" href="/contact.html"> 
-            <i class="bi bi-telephone"></i>
+            <i class="bi bi-telephone-fill"></i>
           </a>
-        
+          
           <hr/><div class="quick-links">
             <a href="/"><i class="bi bi-house-door"></i> Home</a> |
             <a  href="/contact.html"><i class="bi bi-telephone"></i> Contact Me</a> | 
@@ -57,7 +61,7 @@
           </div>
 
           
-            <h1 style="margin-bottom: 0;">Misc p5 Projects</h1>
+            <h1 style="margin-bottom: 0;">Laptop Stand</h1>
             <a href="/projects.html">
               <i class="bi bi-arrow-left"></i>
               Back to projects.
@@ -66,76 +70,9 @@
           
           <br/>
 
-          <audio src="/assets/the-greatest-show.mp3" type="audio/mpeg" crossorigin="anonymous" controls="">
-    </audio>
+          <p>I have the <a href="https://frame.work/products/laptop-diy-13-gen-intel" target="_blank">Framework Laptop 13</a> which I often connect to an external monitor, keyboard, and mouse. In order to save desk space, I made a 3D printable stand which fits the laptop perfectly. You can get the <a href="/assets/laptop-stand.step">STEP file here</a>. Here are some pictures:</p>
 
-<canvas id="canvas">
-
-<script src="/scripts/p5.min.js"></script>
-<script src="/scripts/p5.sound.min.js"></script>
-<script type="text/javascript">
-
-let canvas;
-let fft;
-let SPECTRUM;
-
-function setup() {
-  canvas = createCanvas(750, 750, document.getElementById('canvas'));
-  // Make our canvas an overlay
-  canvas.position(0, 0);
-  // Pass mouse input throught to the elements below
-  canvas.style('pointer-events', 'none');
-
-  fft = new p5.FFT(0);
-
-  let context = getAudioContext();
-  // wire all media elements up to the p5.sound AudioContext
-  for (let elem of selectAll('audio').concat(selectAll('video'))) {
-    let mediaSource = context.createMediaElementSource(elem.elt);
-    mediaSource.connect(p5.soundOut);
-  }
-  SPECTRUM = new Array(1024).fill(0.0);
-
-}
-
-function draw() {
-  clear();
-  background(100, 50);
-  if (fft) {
-    drawSpectrumGraph(0, 0, width, height);
-  }
-}
-
-// Graphing code adapted from https://jankozeluh.g6.cz/index.html by Jan Koželuh
-function drawSpectrumGraph(left, top, w, h) {
-  let spectrum = fft.analyze();
-  
-    for(let i = 0; i < SPECTRUM.length; i++) {
-        SPECTRUM[i] += (spectrum[i] - SPECTRUM[i])/10
-    }
-
-  stroke('limegreen');
-  fill('darkgreen');
-  strokeWeight(1);
-
-  beginShape();
-  vertex(left, top + h);
-
-  for (let i = 0; i < 64; i++) {
-    let j = 16*i;
-    rect(
-        left + map(i, 0, 64, 0, w), h, 
-        w/64, -64*map(SPECTRUM[j], 0, 255, 0, h)/(64-i), 
-        20
-    );
-  }
-
-  vertex(left + w, top + h);
-  endShape(CLOSE);
-}
-
-</script>
-</canvas>
+<p><img src="/assets/laptop-stand-cad.png" alt="cad-model" /></p>
 
         </div>
       </div>
