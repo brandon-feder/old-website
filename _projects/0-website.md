@@ -7,7 +7,7 @@ My website, the place where you are reading this, was a small project I worked o
 
 I wrote this website using [Jekyll](https://jekyllrb.com/){:target="_blank"}, an open source, simple, static website generator. I setup the websites layout, header, etc. using HTML and SASS, but Jekyll allows me to type the main content on each page in Markdown.
 
-In addition, Jekyll provides support for [Liquid](https://shopify.github.io/liquid/){:target="_blank"} templating which allows automatic-writing of HTML based off of variables given by Jekyll or defined at the top of each page in a YAML header. For an example, look at the [source code for `/projects.md`](https://github.com/brandon-feder/brandon-feder.github.io/edit/main/projects.md]){:target="_blank"}.
+In addition, Jekyll provides support for [Liquid](https://shopify.github.io/liquid/){:target="_blank"} templating which allows automatic-writing of HTML based off of variables given by Jekyll or defined at the top of each page in a YAML header. For an example, look at the [source code for `/projects.md`](https://github.com/brandon-feder/brandon-feder.github.io/edit/main/projects.md){:target="_blank"}.
 
 I included [Bootstrap 5](https://getbootstrap.com/){:target="_blank"} and the new Bootstrap 5 icons, though I could have probably done without the former.
 
